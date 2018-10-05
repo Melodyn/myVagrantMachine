@@ -1,0 +1,30 @@
+server
+{
+	charset utf-8;
+	
+	#listen 80 default_server;
+	server_name example.com;
+	
+	root /home/vagrant/www;
+	index index.php;
+
+	location / {
+		rewrite $ /index.php?$args last;
+	}
+
+	location ~ \.(js|css|less|map|png|jpg|gif|svg|swf|ico|eot|ttf|woff|woff2|txt|pdf|htm)$ {
+		try_files $uri =404;
+	}
+
+	location ~ \.php$ { 
+		try_files $uri =404; 
+		include /etc/nginx/fastcgi.conf;
+		fastcgi_pass unix:/run/php/php7.2-fpm.sock; 
+	}
+
+	# чтобы не кэшировалось
+	location ~* ^.+\.(js|css)$ {
+		expires -1;
+		sendfile off;
+	}
+}
