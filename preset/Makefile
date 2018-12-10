@@ -30,7 +30,7 @@ postgres_install:
 	@ echo "--------------------------"
 	@ echo "Enter password 'developer':"
 	sudo -u postgres createuser --createdb --pwprompt developer
-	echo "host all all all password" | sudo tee -a /etc/postgresql/10/main/pg_hba.conf
-	echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/10/main/postgresql.conf
+	@ echo "host all all all password" | sudo tee -a /etc/postgresql/10/main/pg_hba.conf
+	@ echo "listen_addresses = '*'" | sudo tee -a /etc/postgresql/10/main/postgresql.conf
 	sudo service postgresql restart
 	@ #"Памятка про логин под суперюзером: sudo -u postgres psql"
