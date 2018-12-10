@@ -1,3 +1,6 @@
+clear_bash_history:
+	@echo "Copy, Paste, Enter: cat /dev/null > ~/.bash_history && history -c && exit"
+
 info:
 	@ less /vagrant/preset/why.txt
 
