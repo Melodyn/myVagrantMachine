@@ -38,15 +38,15 @@ sudo apt-get -y install curl
 echo "--------------------------"
 echo "Node.js"
 # альтернативные способы установки:
-# https://www.digitalocean.com/community/tutorials/node-js-ubuntu-16-04-ru
-curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+# https://github.com/nodesource/distributions
+curl -sL https://deb.nodesource.com/setup_10.x | sudo -E bash -
 sudo apt-get -y install nodejs
 
 echo "--------------------------"
 echo "Nginx"
 sudo apt-get -y install nginx
-sudo cp -f /vagrant/preset/example.com /etc/nginx/sites-available/
-ln -s /etc/nginx/sites-available/example.com /etc/nginx/sites-enabled/
+sudo cp -f /vagrant/preset/nginx /etc/nginx/sites-available/
+ln -s /etc/nginx/sites-available/nginx /etc/nginx/sites-enabled/
 sudo nginx -s reload
 
 echo "--------------------------"
@@ -68,7 +68,7 @@ printf "
   vagrant ssh
   make initial_setting
   make postgres_install
-2. On your local machine add 192.168.33.10 as 'example.com' in hosts-file and open example.com in your browser.
+2. Open 192.168.33.10 in your browser.
 3. Configure your PhpStorm:
   XDebug:
     1. (File - Settings - Languages - PHP - Debug) 9000 port and DBGp proxy for 192.168.33.10
