@@ -3,9 +3,9 @@ server
 	charset utf-8;
 	
 	#listen 80 default_server;
-	server_name example.com;
+	server_name 192.168.33.10;
 	
-	root /home/vagrant/www;
+	root /vagrant/public_html/src/;
 	index index.php;
 
 	location / {
