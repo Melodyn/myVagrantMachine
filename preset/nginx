@@ -5,7 +5,7 @@ server
 	#listen 80 default_server;
 	server_name 192.168.33.10;
 	
-	root /vagrant/public_html/src/;
+	root /vagrant/public_html/;
 	index index.php;
 
 	location / {
